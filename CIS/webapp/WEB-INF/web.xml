@@ -10,7 +10,28 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <!-- ==================== Built In Servlet Mappings ====================== -->
+	<!-- ==================== Create In Root Application Context ====================== -->
+  	<!-- Context Parameter
+		 @author  : kimhoejun
+		 @appldt  : 20191202
+		 @content : WAS 실행  전, 특정 객체들을 미리 생성하기 위해 설정파일의 경로 할당
+  	 -->
+	<context-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>/WEB-INF/applicationContext.xml</param-value>
+	</context-param>
+	
+	<!-- Context Loader Listner
+		 @author  : kimhoejun
+		 @appldt  : 20191202
+		 @content : WAS 실행 시, Dao와 같은 객체들을 저장하기 위해 리스터 등록
+  	 -->
+  	 <listener>
+  	 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  	 </listener>
+  
+  
+	<!-- ==================== Built In Servlet Mappings ====================== -->
 	<!-- Dispatcher Servlet(Front controller)
 		 @author  : kimhoejun
 		 @appldt  : 20191202
