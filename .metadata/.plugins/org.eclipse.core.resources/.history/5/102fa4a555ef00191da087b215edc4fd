@@ -1,0 +1,49 @@
+package com.utils;
+
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import com.vo.InBDScorVo;
+
+public class CommonUtils {
+	
+	private static int KEY_IDX   = 0;
+	private static int VALUE_IDX = 1;
+	
+	// Str To Map Func
+	public static Map<String, Object> strToMap(String jsonData) {
+		
+		Map<String, Object> retValue = new HashMap<String, Object>();
+		
+		String[] strConvert = jsonData.split(",");
+		for(String item : strConvert) {
+			
+			String[] element = item.split("=");
+			String sKey   = element[KEY_IDX];
+			String sValue = element[VALUE_IDX];
+			
+			retValue.put(sKey, sValue);
+		}
+		
+		return retValue;
+	}
+	
+	// marshal JSON type data To map
+	public static InBDScorVo makeMarshalVo(Map<String, Object> paramMap, Class<?> cls) {
+		
+		InBDScorVo retValue = null;
+		
+		Object value = null;
+		
+		for(String Key : paramMap.keySet()) {
+			
+			value = paramMap.get(Key);
+
+		}
+		
+		return retValue;
+	}
+	
+}
