@@ -7,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<h1>Hello World</h1>
+	<h1>Hello</h1>
+	
+	<script type="text/javascript">
+		/* http://www.localhost:8080/CIS/hello */
+		location.href = './world';
+	</script>
 </body>
 </html>
