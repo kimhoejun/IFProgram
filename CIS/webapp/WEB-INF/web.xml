@@ -16,19 +16,19 @@
 		 @appldt  : 20191202
 		 @content : WAS 실행  전, 특정 객체들을 미리 생성하기 위해 설정파일의 경로 할당
   	 -->
-	<context-param>
+	<!-- <context-param>
   		<param-name>contextConfigLocation</param-name>
   		<param-value>/WEB-INF/applicationContext.xml</param-value>
-	</context-param>
+	</context-param> -->
 	
 	<!-- Context Loader Listner
 		 @author  : kimhoejun
 		 @appldt  : 20191202
 		 @content : WAS 실행 시, Dao와 같은 객체들을 저장하기 위해 리스터 등록
   	 -->
-  	 <listener>
+  	 <!-- <listener>
   	 	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  	 </listener>
+  	 </listener> -->
   
   
 	<!-- ==================== Built In Servlet Mappings ====================== -->
@@ -46,5 +46,33 @@
 		<servlet-name>spring</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<!-- ==================== A filter that sets character encoding that is used to decode ====================== -->
+	<!-- Encoding Filter
+		 @author  : kimhoejun
+		 @appldt  : 20191202
+		 @content : 모든 요청에 대한 객체를  UTF-8로 Encoding
+	 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+
+        <init-param>
+               <param-name>encoding</param-name>
+               <param-value>UTF-8</param-value>
+        </init-param>
+
+        <init-param>
+               <param-name>forceEncoding</param-name>
+               <param-value>true</param-value>
+        </init-param>
+	</filter>
+
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+	</filter-mapping>
+
 </web-app>
 
