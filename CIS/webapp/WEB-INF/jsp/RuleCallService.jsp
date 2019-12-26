@@ -36,7 +36,7 @@
 			System.out.println("====================================================================================");
 			
 			/* 전달받은 jsonMap형태의 데이터를 각각 분기 */
-			Map<String, Object> paramData = CommonUtils.strToMap(jsonReqMsg);
+			Map<String, Object> jsonMap = CommonUtils.strToMap(jsonReqMsg);
 			
 		} catch(Exception e) {
 			
