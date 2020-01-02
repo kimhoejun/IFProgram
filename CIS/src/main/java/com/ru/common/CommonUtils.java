@@ -1,5 +1,6 @@
 package com.ru.common;
 
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +25,25 @@ public class CommonUtils {
 			String sValue = element[VALUE_IDX];
 			
 			retValue.put(sKey, sValue);
+		}
+		
+		return retValue;
+	}
+	
+	// ----------------------------------------------------------------------
+	// 수정중...
+	// ----------------------------------------------------------------------
+	public static String getTrnsClssCode(Class<?> cls) {
+		
+		String retValue = "";
+		
+		for(Field field : cls.getDeclaredFields()) {
+			
+			// private field에 대한 접근 허용
+			field.setAccessible(true);
+			JSONField fld = field.getAnnotation(JSONField.class);
+			
+			
 		}
 		
 		return retValue;
