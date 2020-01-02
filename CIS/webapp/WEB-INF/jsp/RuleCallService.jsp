@@ -1,3 +1,4 @@
+<%@page import="com.ru.asnew.DistributedService"%>
 <%@page import="com.ru.common.CommonUtils"%>
 
 <%@page import="java.io.InputStreamReader"%>
@@ -35,8 +36,11 @@
 			System.out.println("EUC-KR Input data : " + jsonReqMsg);
 			System.out.println("====================================================================================");
 			
-			/* 전달받은 jsonMap형태의 데이터를 각각 분기 */
+			// 전달받은 jsonMap형태의 데이터를 각각 분기 
 			Map<String, Object> jsonMap = CommonUtils.strToMap(jsonReqMsg);
+			
+			// service 시작
+			DistributedService service  = new DistributedService(jsonMap);
 			
 		} catch(Exception e) {
 			
