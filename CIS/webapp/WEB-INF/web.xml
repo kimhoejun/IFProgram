@@ -39,7 +39,7 @@
   	 -->
 	<context-param>
   		<param-name>log4jConfigLocation</param-name>
-  		<param-value>classpath:CIS/system/config/log4j/log4j.properties</param-value>
+  		<param-value>classpath:system/config/log4j/log4j.properties</param-value>
 	</context-param>
 
   	<listener>
